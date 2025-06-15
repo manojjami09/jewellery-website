@@ -1,13 +1,45 @@
 import './index.css';
-import {Link} from 'react-router';
+import {Link, useLocation } from 'react-router';
+import { useState } from 'react';
+import Cookies from 'js-cookie'
+import {useNavigate} from 'react-router'
 
-export default function Navbar() {
+export default function Navbar({ onSearch }) {
+
+    const [searchInput, setSearchInput] = useState('');
+  const location = useLocation();
+
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setSearchInput(value);
+
+    if (location.pathname === '/products') {
+      const event = new CustomEvent('shop-search', { detail: value.toLowerCase() });
+      window.dispatchEvent(event);
+    }
+  };
+
+  const navigate = useNavigate()
+  const onClickLogout = () => {
+    Cookies.remove('jwt_token')
+    navigate('/login', {replace: true})
+  }
+ 
   return (
     <div className="navbar-container">
         <nav className="navbar">
-            <div className="">
-                <input type="search" placeholder="Search..." className="search-bar" />
-            </div>
+            
+                {location.pathname === '/products' && (
+                <input
+                    type="search"
+                    placeholder="Search..."
+                    className="search-bar"
+                    value={searchInput}
+                    onChange={handleSearch}
+                />
+                )}  
+            
+            
             <div className="logo">
                 <h1 className="logo-name">Adalene</h1>
             </div>
@@ -19,10 +51,19 @@ export default function Navbar() {
                     <i className="fa-brands fa-pinterest-p"></i>
                 </div>
                 <div className="login">
-                    <button className="nav-button">Login</button>
+                    <button
+                        type="button"
+                        className="login-out"
+                        onClick={onClickLogout}
+                    >
+                        Logout
+                    </button>
                 </div>
                 <div className="cart">
-                    <button className="nav-button">Cart</button>
+                    <Link to="/cart">
+                        <i className="fa-solid fa-cart-shopping"></i>
+                    
+                   </Link>
                 </div>
             </div> 
         </nav>

@@ -10,7 +10,7 @@ function ProductCard(props) {
             {/* <span class="tag">Best Seller</span> */}
             <img src={product.image} alt="img" />
             <p className='Name'>{product.name}</p>
-            <p class="Price">${product.price}</p>
+            <p class="Price">₹{product.price}</p>
         </div>
       </div>
     </Link>

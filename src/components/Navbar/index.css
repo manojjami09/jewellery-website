@@ -50,3 +50,25 @@
     font-family: "calibri";
     font-size: 18px;   
 }
+.login-out{
+  background-color: #c59d5f;
+  color: white;
+  border: none;
+  padding: 10px;
+  padding-left: 18px;
+  padding-right: 18px;
+  font-size: 13px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-out :hover {
+  background-color: #b28949;
+}
+.cart{
+    margin-top: 1px;
+    color : #a9442e;
+    font-size: 25px;
+    
+}
