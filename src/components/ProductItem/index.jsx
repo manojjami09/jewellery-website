@@ -13,6 +13,7 @@ const ProductItem = () => {
   const [products, setProducts] = useState([]);
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1)
+  const [isAdded, setIsAdded] = useState(false)
   const value = use(CartContext)
   const {addCartItem} = value
 
@@ -21,6 +22,8 @@ const ProductItem = () => {
       (product) => product.id === id || product.id === parseInt(id)
     );
     addCartItem({...productDetails, quantity})
+    setIsAdded(true);
+    
   }
   
 
@@ -28,9 +31,10 @@ const ProductItem = () => {
     const fetchProducts = async () => {
       const querySnapshot = await getDocs(collection(db, 'Products'));
       const items = querySnapshot.docs.map(doc => ({
-        id: doc.id,
+        id: doc.data().id,
         ...doc.data(),
       }));
+      console.log("Fetched Products:", items);
       setProducts(items);
     };
 
@@ -100,7 +104,7 @@ const ProductItem = () => {
             </p>
             <hr/>
             <p className='product-stock'>In stock - ready to ship</p>
-            <button className='add-to-cart-btn'  onClick={onClickAddToCart}>Add to Cart</button>
+            <button className='add-to-cart-btn'  onClick={onClickAddToCart}>{isAdded ? 'Added to Cart' : 'Add to Cart'}</button>
 
           </div>
           

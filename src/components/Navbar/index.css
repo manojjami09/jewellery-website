@@ -16,9 +16,16 @@
     gap: 10px;
     margin-top: 6px;
 }
+.logo{
+    padding: 10px;
+}
 .logo-name{
     font-family: "Linotype";
     font-style: italic;
+    margin-left: 1rem;
+    color: black;
+    text-decoration: underline;
+    text-decoration-color: white;
 }
 .nav-button{
     border: 0px;
@@ -39,7 +46,9 @@
 }
 .navbar-links{
     display: flex;
-    gap: 60px;
+    justify-content: center;
+    gap: 5rem;
+    margin-left: 8rem;
 }
 .navbar-bottom{
     display: flex;
@@ -48,7 +57,7 @@
 .nav-link{
     text-decoration: none;
     font-family: "calibri";
-    font-size: 18px;   
+    font-size: 20px;   
 }
 .login-out{
   background-color: #c59d5f;
@@ -68,7 +77,7 @@
 }
 .cart{
     margin-top: 1px;
-    color : #a9442e;
+    color : black;
     font-size: 25px;
     
 }

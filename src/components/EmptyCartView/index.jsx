@@ -4,7 +4,7 @@ import './index.css'
 const EmptyCartView = () => (
   <div className="cart-empty-view-container">
     <img
-      src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-empty-cart-img.png"
+      src="https://res.cloudinary.com/dobgclr9v/image/upload/v1750095923/minimalist-shopping-cart-icon-white-background-cart-designed-black-outline-light-beige-fill-featuring-two-378077529_lyhwo6.webp"
       className="cart-empty-image"
       alt="cart empty"
     />

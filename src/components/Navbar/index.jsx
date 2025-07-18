@@ -41,14 +41,23 @@ export default function Navbar({ onSearch }) {
             
             
             <div className="logo">
+                <Link to="/">
                 <h1 className="logo-name">Adalene</h1>
+                </Link>
             </div>
             <div className="right-bar">
-                <div className="icons">
+                {/* <div className="icons">
                     <i className="fa-brands fa-facebook-f"></i>
                     <i className="fa-brands fa-instagram"></i>
                     <i className="fa-brands fa-twitter"></i>
                     <i className="fa-brands fa-pinterest-p"></i>
+                </div> */}
+                
+                <div className="cart">
+                    <Link to="/cart">
+                        <i className="fa-solid fa-cart-shopping cart"></i>
+                    
+                   </Link>
                 </div>
                 <div className="login">
                     <button
@@ -59,12 +68,6 @@ export default function Navbar({ onSearch }) {
                         Logout
                     </button>
                 </div>
-                <div className="cart">
-                    <Link to="/cart">
-                        <i className="fa-solid fa-cart-shopping"></i>
-                    
-                   </Link>
-                </div>
             </div> 
         </nav>
         <div className="navbar-bottom">
@@ -74,15 +77,6 @@ export default function Navbar({ onSearch }) {
                 </Link>
                 <Link className="nav-link" to="/products">
                     Products
-                </Link>
-                <Link className="nav-link">
-                    Our Craft
-                </Link>
-                <Link className="nav-link">
-                    Gift Card
-                </Link>
-                <Link className="nav-link">
-                    Contact Us
                 </Link> 
                 
             </div>
